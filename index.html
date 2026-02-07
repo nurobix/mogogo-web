@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mogogo - Confidentialité et Données / Privacy / Privacidad</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
+        .container { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #4a148c; border-bottom: 2px solid #4a148c; padding-bottom: 10px; }
+        h2 { color: #6a1b9a; margin-top: 30px; }
+        .lang-switcher { text-align: right; margin-bottom: 20px; }
+        .lang-btn { background: #eee; border: 1px solid #ccc; padding: 5px 10px; cursor: pointer; border-radius: 3px; margin-left: 5px; }
+        .lang-btn.active { background: #4a148c; color: white; border-color: #4a148c; }
+        .highlight { background-color: #f3e5f5; padding: 15px; border-left: 5px solid #6a1b9a; margin: 20px 0; }
+        .btn-delete { display: inline-block; background: #d32f2f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
+        [lang]:not(:target) { display: none; } /* Cache les langues non sélectionnées */
+        section:target { display: block; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="lang-switcher">
+        <button class="lang-btn" onclick="showLang('fr')">FR</button>
+        <button class="lang-btn" onclick="showLang('en')">EN</button>
+        <button class="lang-btn" onclick="showLang('es')">ES</button>
+    </div>
+
+    <div id="lang-fr" class="content">
+        <h1>Mogogo : Confidentialité</h1>
+        <p><em>Dernière mise à jour : Février 2026</em></p>
+        <h2>1. Politique de Confidentialité</h2>
+        <p>Nous collectons votre nom et email via Google Login, ainsi que votre localisation pour vous proposer des activités adaptées.</p>
+        <div class="highlight">
+            <h2>2. Suppression de données</h2>
+            <p>Pour supprimer votre compte et toutes vos données, utilisez le bouton dans l'app ou cliquez ci-dessous :</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScb7sTmuZFDXITS8EaSpdkzyFmd-tx8Dw7k1ML2mkKRWzg2Tw/viewform?usp=publish-editor" class="btn-delete">Supprimer mes données</a>
+        </div>
+    </div>
+
+    <div id="lang-en" class="content" style="display:none;">
+        <h1>Mogogo: Privacy Policy</h1>
+        <p><em>Last updated: February 2026</em></p>
+        <h2>1. Privacy Policy</h2>
+        <p>We collect your name and email via Google Login, and your location to provide relevant activity recommendations.</p>
+        <div class="highlight">
+            <h2>2. Data Deletion</h2>
+            <p>To delete your account and all associated data, use the in-app button or click below:</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScb7sTmuZFDXITS8EaSpdkzyFmd-tx8Dw7k1ML2mkKRWzg2Tw/viewform?usp=publish-editor" class="btn-delete">Delete my data</a>
+        </div>
+    </div>
+
+    <div id="lang-es" class="content" style="display:none;">
+        <h1>Mogogo: Privacidad</h1>
+        <p><em>Última actualización: Febrero 2026</em></p>
+        <h2>1. Política de Privacidad</h2>
+        <p>Recopilamos su nombre y correo electrónico a través de Google Login, y su ubicación para ofrecerle actividades relevantes.</p>
+        <div class="highlight">
+            <h2>2. Eliminación de datos</h2>
+            <p>Para eliminar su cuenta y todos sus datos, use el botón en la aplicación o haga clic aquí:</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScb7sTmuZFDXITS8EaSpdkzyFmd-tx8Dw7k1ML2mkKRWzg2Tw/viewform?usp=publish-editor" class="btn-delete">Eliminar mis datos</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showLang(lang) {
+        // Masquer tous les contenus
+        document.querySelectorAll('.content').forEach(el => el.style.display = 'none');
+        // Afficher la langue choisie
+        document.getElementById('lang-' + lang).style.display = 'block';
+        // Gérer l'état des boutons
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+    }
+    // Par défaut on affiche le français (ou selon la langue du navigateur)
+    showLang('fr');
+</script>
+
+</body>
+</html>
