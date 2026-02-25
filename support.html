@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mogogo — Assistance</title>
+  <meta name="description" content="Mogogo support and FAQ. Get help with your Mogogo app.">
+  <meta name="theme-color" content="#6C3FC5">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#6C3FC5',
+            'brand-light': '#8B5CF6',
+            'brand-dark': '#5228A8',
+            'brand-surface': '#F5F0FF',
+            'brand-accent': '#EDE5FF',
+          },
+          fontFamily: {
+            nunito: ['Nunito', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary { list-style: none; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-xl border-b border-brand/10 transition-shadow" id="navbar">
+    <div class="max-w-5xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <a href="https://mogogo.app" class="flex items-center gap-2.5 text-brand font-extrabold text-xl tracking-wide">
+        <img src="assets/icon.png" alt="Mogogo" width="36" height="36" class="rounded-lg">
+        Mogogo
+      </a>
+      <div class="flex items-center gap-3">
+        <div class="flex bg-brand-surface rounded-lg p-0.5">
+          <button class="lang-btn px-2.5 py-1 rounded-md text-xs font-bold text-gray-500 hover:text-brand transition-all" data-lang="en">EN</button>
+          <button class="lang-btn px-2.5 py-1 rounded-md text-xs font-bold text-gray-500 hover:text-brand transition-all" data-lang="fr">FR</button>
+          <button class="lang-btn px-2.5 py-1 rounded-md text-xs font-bold text-gray-500 hover:text-brand transition-all" data-lang="es">ES</button>
+        </div>
+        <a href="https://mogogo.app" class="hidden sm:inline-flex bg-brand text-white px-5 py-2 rounded-lg text-sm font-bold hover:-translate-y-0.5 hover:shadow-lg transition-all" data-i18n="nav.backHome">Back to home</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 pt-28 pb-16 px-6">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 bg-brand-surface text-brand px-4 py-2 rounded-full text-sm font-bold mb-6 border border-brand/10">
+          &#129417; <span data-i18n="support.badge">Support</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-black text-gray-900 mb-4" data-i18n="support.title">Mogogo Assistance</h1>
+        <p class="text-lg text-gray-500 max-w-xl mx-auto" data-i18n="support.subtitle">Find answers to your questions or contact us directly.</p>
+      </div>
+
+      <!-- FAQ Section -->
+      <section class="mb-16 space-y-12">
+
+        <!-- 1. Recommendations -->
+        <div>
+          <h2 class="text-xl font-extrabold text-gray-900 mb-5 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-white flex items-center justify-center text-base font-bold shadow-md">&#129302;</span>
+            <span data-i18n="faq.cat1">Recommendations (The Engine & The Grimoire)</span>
+          </h2>
+          <div class="space-y-3">
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q1">How does Mogogo choose the activities it suggests?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a1">Mogogo uses four key variables to understand your situation: your Environment (at home, outside...), your Energy level (chill or active), your Social context (alone, with friends, as a couple, family), and your Location. These inputs are fed into an AI engine (LLM) that generates a personalized activity recommendation uniquely tailored to you. No two sessions are the same!</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q2">The recommendations don't match me. What should I do?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a2">Head to "The Grimoire" in the app to update your personal preferences. The Grimoire is Mogogo's magical memory of your tastes, interests, and dislikes. The more accurately you fill it in, the better the wizard owl knows you and the more relevant its suggestions become. You can update it anytime!</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 2. Feathers & In-App Purchases -->
+        <div>
+          <h2 class="text-xl font-extrabold text-gray-900 mb-5 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-white flex items-center justify-center text-base font-bold shadow-md">&#129668;</span>
+            <span data-i18n="faq.cat2">Feathers & In-App Purchases</span>
+          </h2>
+          <div class="space-y-3">
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q3">What are "Feathers" and how do I get them?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a3">Feathers are Mogogo's in-app currency. Each session with the wizard owl costs feathers. You earn free feathers every day simply by opening the app. You can also get bonus feathers by watching a short rewarded ad, or purchase feather packs in the in-app shop to keep the magic going!</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q4">I bought Feathers but didn't receive them. What should I do?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a4">Go to the app settings (gear icon at the top right), then tap "Restore purchases". Our system powered by RevenueCat will automatically sync your purchases with your account. Make sure you are signed in with the same Google account you used for the original purchase. If the issue persists, contact us via the button below.</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 3. Referral & Magic Codes -->
+        <div>
+          <h2 class="text-xl font-extrabold text-gray-900 mb-5 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-white flex items-center justify-center text-base font-bold shadow-md">&#128302;</span>
+            <span data-i18n="faq.cat3">Referral & Magic Codes</span>
+          </h2>
+          <div class="space-y-3">
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q5">How do I use a "Magic Code" (promo code)?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a5">Open the app and go to Settings, then tap "Enter a Magic Code". Type or paste the code you received and confirm. If the code is valid, your bonus feathers will be credited instantly. Magic Codes can come from social media events, partnerships, or directly from the Mogogo team!</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q6">How does the referral system work?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a6">You have a unique referral code in your profile. Share it with friends! When a new user enters your code after installing Mogogo, both of you receive bonus feathers. The more friends you invite, the more feathers you earn. It's a win-win!</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 4. History & Feedback -->
+        <div>
+          <h2 class="text-xl font-extrabold text-gray-900 mb-5 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-white flex items-center justify-center text-base font-bold shadow-md">&#128214;</span>
+            <span data-i18n="faq.cat4">History & Feedback</span>
+          </h2>
+          <div class="space-y-3">
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q7">Can I find an activity that was suggested to me yesterday?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a7">Yes! Mogogo keeps a full history of your past sessions. Tap the History section from the main screen to browse all activities the wizard owl has suggested to you. Each entry includes the full activity details, so you'll never lose a great idea.</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q8">How do I give feedback on an activity?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a8">From your History, tap on any past session to open the activity detail screen. There you can rate the activity from 1 to 5 stars and leave a comment. Your feedback helps Mogogo learn your preferences and improve future recommendations!</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 5. Account & Settings -->
+        <div>
+          <h2 class="text-xl font-extrabold text-gray-900 mb-5 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-white flex items-center justify-center text-base font-bold shadow-md">&#9881;</span>
+            <span data-i18n="faq.cat5">Account & Settings</span>
+          </h2>
+          <div class="space-y-3">
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q9">Is the app available in other languages?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a9">Mogogo is currently available in three languages: French, English, and Spanish. The app automatically detects your device language, but you can change it manually in Settings at any time.</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q10">How do I enable dark mode?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a10">Go to Settings and toggle the theme between Light and Dark mode. Mogogo supports both themes so you can use the app comfortably at any time of day.</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q11">Why do I see ads?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a11">Mogogo is free to use. To keep it that way, we display occasional ads via Google AdMob. Ads are non-intrusive and only appear at specific moments. You can also choose to watch a rewarded ad to earn bonus feathers. We will never interrupt your session with the wizard owl!</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 6. Family & Kids -->
+        <div>
+          <h2 class="text-xl font-extrabold text-gray-900 mb-5 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-white flex items-center justify-center text-base font-bold shadow-md">&#128106;</span>
+            <span data-i18n="faq.cat6">Family & Personalization for Kids</span>
+          </h2>
+          <div class="space-y-3">
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q12">How can I make sure the recommendations are suitable for my children?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a12">When you select the "Family" social group, an age slider appears ranging from 0 to 16 years old. Set it to match the age of the youngest child present. The AI engine will strictly adapt recommendations to that age range: for example, it will never suggest an escape game for a 2-year-old. This ensures every activity is safe and age-appropriate.</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 7. Premium & Geolocation -->
+        <div>
+          <h2 class="text-xl font-extrabold text-gray-900 mb-5 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-white flex items-center justify-center text-base font-bold shadow-md">&#128205;</span>
+            <span data-i18n="faq.cat7">Premium Mode & Geolocation (Out-Home)</span>
+          </h2>
+          <div class="space-y-3">
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q13">Why are some out-of-home activities locked?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a13">The localized/geolocated mode, which suggests real places near you, is reserved for Premium subscribers. For the "Warm & cozy" and "Under the open sky" environments, GPS verification is required for the feature to work. This allows Mogogo to recommend real, nearby venues rather than generic ideas.</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q14">How does the app find real places around me?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a14">In Premium mode, Mogogo searches for real, currently open establishments around your location with a minimum rating of 3.5 stars. This ensures that every place suggested is reputable and accessible, giving you confidence before heading out.</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 8. Quick Launch & Deep Links -->
+        <div>
+          <h2 class="text-xl font-extrabold text-gray-900 mb-5 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-white flex items-center justify-center text-base font-bold shadow-md">&#128279;</span>
+            <span data-i18n="faq.cat8">Quick Launch & Deep Links (Rich Actions)</span>
+          </h2>
+          <div class="space-y-3">
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q15">Can I link my Netflix, Spotify or other subscriptions to Mogogo?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a15">Yes! In Settings, you can configure up to 3 video streaming services and up to 3 music streaming services from a curated catalog. When a recommendation matches one of your services, Mogogo provides a direct deep link to open the content in your favorite app. No more searching manually!</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q16">How do I open the recommended place on my GPS?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a16">On the result screen, you'll find a "Maps Action" button with the direct GPS coordinates of the recommended place. Simply tap it to open the location in your preferred maps app and get directions right away.</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 9. Recommendation Controls -->
+        <div>
+          <h2 class="text-xl font-extrabold text-gray-900 mb-5 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-white flex items-center justify-center text-base font-bold shadow-md">&#127919;</span>
+            <span data-i18n="faq.cat9">Recommendation Controls ("Nudge" & Rejections)</span>
+          </h2>
+          <div class="space-y-3">
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q17">What if I already have an idea of what I want to do?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a17">Before starting the discovery funnel, there's a "Nudge" step where you can write a specific idea or use tags to guide the AI. For example, type "something with cooking" or select tags like "outdoor" and "creative". This helps Mogogo focus its recommendations right from the start.</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q18">Can I type anything in the free text field?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a18">Almost anything! However, Mogogo includes a built-in NSFW and violence filter. If your input contains inappropriate content, the wizard owl will politely decline and ask you to rephrase. This keeps the experience fun and safe for everyone.</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q19">The final activity doesn't appeal to me at all. What happens if I tap "Not for me"?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a19">Mogogo will immediately suggest an alternative activity. But more importantly, this feedback lowers the score of those themes in your Grimoire so that the wizard owl learns from its mistakes and avoids similar suggestions in the future. Every "Not for me" makes Mogogo smarter!</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 10. Dashboard & Community -->
+        <div>
+          <h2 class="text-xl font-extrabold text-gray-900 mb-5 flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-white flex items-center justify-center text-base font-bold shadow-md">&#127775;</span>
+            <span data-i18n="faq.cat10">Dashboard & Community Inspirations</span>
+          </h2>
+          <div class="space-y-3">
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q20">What does "Mood / Energy" on the home screen mean?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a20">On the home screen, you can optionally set your energy level for the day: Tired, Feeling good, or Pumped up. This influences how the AI engine calibrates recommendations for your current sessions. A "Tired" mood will favor chill, low-effort activities, while "Pumped up" will suggest more active and ambitious ideas.</div>
+            </details>
+            <details class="group bg-brand-surface/60 border border-brand/8 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-bold text-gray-800 hover:text-brand transition-colors select-none">
+                <span data-i18n="faq.q21">What are "Community Inspirations"?</span>
+                <svg class="w-5 h-5 text-brand shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed" data-i18n="faq.a21">Community Inspirations let you browse and launch activities that other Mogogo users have loved. They are ranked by the average star rating given by the community. It's a great way to discover popular activities you might never have thought of on your own!</div>
+            </details>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Contact Section -->
+      <section class="text-center">
+        <div class="bg-gradient-to-br from-brand to-indigo-500 rounded-3xl p-10 sm:p-14 text-white shadow-xl">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-white/15 border-2 border-white/30 overflow-hidden">
+            <img src="assets/icon.png" alt="Mogogo" class="w-full h-full object-cover">
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black mb-3" data-i18n="contact.title">Still need help?</h2>
+          <p class="text-white/80 mb-8 max-w-md mx-auto" data-i18n="contact.subtitle">Our team is here to help you. Send us an email and we'll get back to you as soon as possible.</p>
+          <button
+            onclick="openMail()"
+            class="inline-flex items-center gap-3 bg-white text-brand font-bold px-8 py-4 rounded-2xl text-lg hover:-translate-y-1 hover:shadow-2xl transition-all cursor-pointer"
+          >
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span data-i18n="contact.btn">Contact us by email</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white/70 px-6 py-10">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div class="flex items-center gap-2 text-white font-extrabold text-lg">
+        <img src="assets/icon.png" alt="Mogogo" width="28" height="28" class="rounded-lg">
+        Mogogo
+      </div>
+      <div class="flex gap-6">
+        <a href="https://mogogo.app/privacy.html" class="hover:text-brand-light transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="https://mogogo.app/terms.html" class="hover:text-brand-light transition-colors" data-i18n="footer.terms">Terms of Service</a>
+      </div>
+      <span>&copy; 2025 Mogogo Inc.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Email obfuscation
+    function openMail() {
+      var u = 'support';
+      var d = 'mogogo.app';
+      window.location.href = 'mai' + 'lto:' + u + '@' + d;
+    }
+
+    // i18n
+    var T = {
+      en: {
+        "nav.backHome": "Back to home",
+        "support.badge": "Support",
+        "support.title": "Mogogo Assistance",
+        "support.subtitle": "Find answers to your questions or contact us directly.",
+        "faq.cat1": "Recommendations (The Engine & The Grimoire)",
+        "faq.q1": "How does Mogogo choose the activities it suggests?",
+        "faq.a1": "Mogogo uses four key variables to understand your situation: your Environment (at home, outside...), your Energy level (chill or active), your Social context (alone, with friends, as a couple, family), and your Location. These inputs are fed into an AI engine (LLM) that generates a personalized activity recommendation uniquely tailored to you. No two sessions are the same!",
+        "faq.q2": "The recommendations don't match me. What should I do?",
+        "faq.a2": "Head to \"The Grimoire\" in the app to update your personal preferences. The Grimoire is Mogogo's magical memory of your tastes, interests, and dislikes. The more accurately you fill it in, the better the wizard owl knows you and the more relevant its suggestions become. You can update it anytime!",
+        "faq.cat2": "Feathers & In-App Purchases",
+        "faq.q3": "What are \"Feathers\" and how do I get them?",
+        "faq.a3": "Feathers are Mogogo's in-app currency. Each session with the wizard owl costs feathers. You earn free feathers every day simply by opening the app. You can also get bonus feathers by watching a short rewarded ad, or purchase feather packs in the in-app shop to keep the magic going!",
+        "faq.q4": "I bought Feathers but didn't receive them. What should I do?",
+        "faq.a4": "Go to the app settings (gear icon at the top right), then tap \"Restore purchases\". Our system powered by RevenueCat will automatically sync your purchases with your account. Make sure you are signed in with the same Google account you used for the original purchase. If the issue persists, contact us via the button below.",
+        "faq.cat3": "Referral & Magic Codes",
+        "faq.q5": "How do I use a \"Magic Code\" (promo code)?",
+        "faq.a5": "Open the app and go to Settings, then tap \"Enter a Magic Code\". Type or paste the code you received and confirm. If the code is valid, your bonus feathers will be credited instantly. Magic Codes can come from social media events, partnerships, or directly from the Mogogo team!",
+        "faq.q6": "How does the referral system work?",
+        "faq.a6": "You have a unique referral code in your profile. Share it with friends! When a new user enters your code after installing Mogogo, both of you receive bonus feathers. The more friends you invite, the more feathers you earn. It's a win-win!",
+        "faq.cat4": "History & Feedback",
+        "faq.q7": "Can I find an activity that was suggested to me yesterday?",
+        "faq.a7": "Yes! Mogogo keeps a full history of your past sessions. Tap the History section from the main screen to browse all activities the wizard owl has suggested to you. Each entry includes the full activity details, so you'll never lose a great idea.",
+        "faq.q8": "How do I give feedback on an activity?",
+        "faq.a8": "From your History, tap on any past session to open the activity detail screen. There you can rate the activity from 1 to 5 stars and leave a comment. Your feedback helps Mogogo learn your preferences and improve future recommendations!",
+        "faq.cat5": "Account & Settings",
+        "faq.q9": "Is the app available in other languages?",
+        "faq.a9": "Mogogo is currently available in three languages: French, English, and Spanish. The app automatically detects your device language, but you can change it manually in Settings at any time.",
+        "faq.q10": "How do I enable dark mode?",
+        "faq.a10": "Go to Settings and toggle the theme between Light and Dark mode. Mogogo supports both themes so you can use the app comfortably at any time of day.",
+        "faq.q11": "Why do I see ads?",
+        "faq.a11": "Mogogo is free to use. To keep it that way, we display occasional ads via Google AdMob. Ads are non-intrusive and only appear at specific moments. You can also choose to watch a rewarded ad to earn bonus feathers. We will never interrupt your session with the wizard owl!",
+        "faq.cat6": "Family & Personalization for Kids",
+        "faq.q12": "How can I make sure the recommendations are suitable for my children?",
+        "faq.a12": "When you select the \"Family\" social group, an age slider appears ranging from 0 to 16 years old. Set it to match the age of the youngest child present. The AI engine will strictly adapt recommendations to that age range: for example, it will never suggest an escape game for a 2-year-old. This ensures every activity is safe and age-appropriate.",
+        "faq.cat7": "Premium Mode & Geolocation (Out-Home)",
+        "faq.q13": "Why are some out-of-home activities locked?",
+        "faq.a13": "The localized/geolocated mode, which suggests real places near you, is reserved for Premium subscribers. For the \"Warm & cozy\" and \"Under the open sky\" environments, GPS verification is required for the feature to work. This allows Mogogo to recommend real, nearby venues rather than generic ideas.",
+        "faq.q14": "How does the app find real places around me?",
+        "faq.a14": "In Premium mode, Mogogo searches for real, currently open establishments around your location with a minimum rating of 3.5 stars. This ensures that every place suggested is reputable and accessible, giving you confidence before heading out.",
+        "faq.cat8": "Quick Launch & Deep Links (Rich Actions)",
+        "faq.q15": "Can I link my Netflix, Spotify or other subscriptions to Mogogo?",
+        "faq.a15": "Yes! In Settings, you can configure up to 3 video streaming services and up to 3 music streaming services from a curated catalog. When a recommendation matches one of your services, Mogogo provides a direct deep link to open the content in your favorite app. No more searching manually!",
+        "faq.q16": "How do I open the recommended place on my GPS?",
+        "faq.a16": "On the result screen, you'll find a \"Maps Action\" button with the direct GPS coordinates of the recommended place. Simply tap it to open the location in your preferred maps app and get directions right away.",
+        "faq.cat9": "Recommendation Controls (\"Nudge\" & Rejections)",
+        "faq.q17": "What if I already have an idea of what I want to do?",
+        "faq.a17": "Before starting the discovery funnel, there's a \"Nudge\" step where you can write a specific idea or use tags to guide the AI. For example, type \"something with cooking\" or select tags like \"outdoor\" and \"creative\". This helps Mogogo focus its recommendations right from the start.",
+        "faq.q18": "Can I type anything in the free text field?",
+        "faq.a18": "Almost anything! However, Mogogo includes a built-in NSFW and violence filter. If your input contains inappropriate content, the wizard owl will politely decline and ask you to rephrase. This keeps the experience fun and safe for everyone.",
+        "faq.q19": "The final activity doesn't appeal to me at all. What happens if I tap \"Not for me\"?",
+        "faq.a19": "Mogogo will immediately suggest an alternative activity. But more importantly, this feedback lowers the score of those themes in your Grimoire so that the wizard owl learns from its mistakes and avoids similar suggestions in the future. Every \"Not for me\" makes Mogogo smarter!",
+        "faq.cat10": "Dashboard & Community Inspirations",
+        "faq.q20": "What does \"Mood / Energy\" on the home screen mean?",
+        "faq.a20": "On the home screen, you can optionally set your energy level for the day: Tired, Feeling good, or Pumped up. This influences how the AI engine calibrates recommendations for your current sessions. A \"Tired\" mood will favor chill, low-effort activities, while \"Pumped up\" will suggest more active and ambitious ideas.",
+        "faq.q21": "What are \"Community Inspirations\"?",
+        "faq.a21": "Community Inspirations let you browse and launch activities that other Mogogo users have loved. They are ranked by the average star rating given by the community. It's a great way to discover popular activities you might never have thought of on your own!",
+        "contact.title": "Still need help?",
+        "contact.subtitle": "Our team is here to help you. Send us an email and we'll get back to you as soon as possible.",
+        "contact.btn": "Contact us by email",
+        "footer.privacy": "Privacy Policy",
+        "footer.terms": "Terms of Service"
+      },
+      fr: {
+        "nav.backHome": "Retour a l'accueil",
+        "support.badge": "Assistance",
+        "support.title": "Assistance Mogogo",
+        "support.subtitle": "Retrouve les reponses a tes questions ou contacte-nous directement.",
+        "faq.cat1": "Recommandations (Le Moteur & Le Grimoire)",
+        "faq.q1": "Comment Mogogo choisit-il les activites qu'il me propose ?",
+        "faq.a1": "Mogogo utilise quatre variables cles pour comprendre ta situation : ton Environnement (a la maison, dehors...), ton niveau d'Energie (calme ou actif), ton contexte Social (seul, entre amis, en couple, en famille) et ta Localisation. Ces informations sont envoyees a un moteur d'IA (LLM) qui genere une recommandation d'activite personnalisee et unique. Aucune session ne se ressemble !",
+        "faq.q2": "Les recommandations ne me correspondent pas, que faire ?",
+        "faq.a2": "Rends-toi dans \"Le Grimoire\" de l'application pour mettre a jour tes preferences personnelles. Le Grimoire est la memoire magique de Mogogo : tes gouts, tes centres d'interet et ce que tu n'aimes pas. Plus tu le remplis avec precision, mieux le hibou magicien te connait et plus ses suggestions sont pertinentes. Tu peux le modifier a tout moment !",
+        "faq.cat2": "Plumes & Achats In-App",
+        "faq.q3": "A quoi servent les \"Plumes\" et comment en obtenir ?",
+        "faq.a3": "Les Plumes sont la monnaie virtuelle de Mogogo. Chaque session avec le hibou magicien coute des plumes. Tu en gagnes gratuitement chaque jour simplement en ouvrant l'application. Tu peux aussi obtenir des plumes bonus en regardant une courte publicite recompensee, ou acheter des packs de plumes dans la boutique pour continuer la magie !",
+        "faq.q4": "J'ai achete des Plumes mais je ne les ai pas recues, que faire ?",
+        "faq.a4": "Va dans les reglages de l'application (icone engrenage en haut a droite), puis appuie sur \"Restaurer les achats\". Notre systeme propulse par RevenueCat synchronisera automatiquement tes achats avec ton compte. Assure-toi d'etre connecte avec le meme compte Google que celui utilise pour l'achat d'origine. Si le probleme persiste, contacte-nous via le bouton ci-dessous.",
+        "faq.cat3": "Parrainage & Codes Magiques",
+        "faq.q5": "Comment utiliser un \"Code Magique\" (code promo) ?",
+        "faq.a5": "Ouvre l'application et va dans les Reglages, puis appuie sur \"Entrer un Code Magique\". Saisis ou colle le code que tu as recu et confirme. Si le code est valide, tes plumes bonus seront creditees instantanement. Les Codes Magiques peuvent provenir d'evenements sur les reseaux sociaux, de partenariats ou directement de l'equipe Mogogo !",
+        "faq.q6": "Comment fonctionne le systeme de parrainage ?",
+        "faq.a6": "Tu disposes d'un code de parrainage unique dans ton profil. Partage-le avec tes amis ! Quand un nouvel utilisateur entre ton code apres avoir installe Mogogo, vous recevez tous les deux des plumes bonus. Plus tu invites d'amis, plus tu gagnes de plumes. Tout le monde y gagne !",
+        "faq.cat4": "Historique & Retour d'experience",
+        "faq.q7": "Puis-je retrouver une activite qu'on m'a proposee hier ?",
+        "faq.a7": "Oui ! Mogogo conserve un historique complet de tes sessions passees. Appuie sur la section Historique depuis l'ecran principal pour parcourir toutes les activites que le hibou magicien t'a suggerees. Chaque entree contient tous les details de l'activite, tu ne perdras jamais une bonne idee.",
+        "faq.q8": "Comment donner mon avis sur une activite ?",
+        "faq.a8": "Depuis ton Historique, appuie sur une session passee pour ouvrir l'ecran de detail de l'activite. Tu peux y noter l'activite de 1 a 5 etoiles et laisser un commentaire. Tes retours aident Mogogo a mieux connaitre tes preferences et a ameliorer ses futures recommandations !",
+        "faq.cat5": "Compte & Parametres",
+        "faq.q9": "L'application est-elle disponible dans d'autres langues ?",
+        "faq.a9": "Mogogo est actuellement disponible en trois langues : francais, anglais et espagnol. L'application detecte automatiquement la langue de ton appareil, mais tu peux la changer manuellement dans les Reglages a tout moment.",
+        "faq.q10": "Comment activer le mode sombre ?",
+        "faq.a10": "Va dans les Reglages et bascule le theme entre mode Clair et mode Sombre. Mogogo prend en charge les deux themes pour que tu puisses utiliser l'application confortablement a toute heure.",
+        "faq.q11": "Pourquoi ai-je des publicites ?",
+        "faq.a11": "Mogogo est gratuit. Pour le rester, nous affichons occasionnellement des publicites via Google AdMob. Les publicites sont non intrusives et n'apparaissent qu'a des moments specifiques. Tu peux aussi choisir de regarder une publicite recompensee pour gagner des plumes bonus. Nous n'interromprons jamais ta session avec le hibou magicien !",
+        "faq.cat6": "Famille & Personnalisation pour les enfants",
+        "faq.q12": "Comment etre sur que les recommandations seront adaptees a mes enfants ?",
+        "faq.a12": "Lorsque tu selectionnes le groupe social \"Famille\", un curseur d'age apparait, allant de 0 a 16 ans. Regle-le sur l'age du plus jeune enfant present. Le moteur d'IA adaptera strictement les recommandations a cette tranche d'age : par exemple, il ne proposera jamais un escape game pour un enfant de 2 ans. Chaque activite est ainsi sure et adaptee.",
+        "faq.cat7": "Mode Premium & Geolocalisation (Hors domicile)",
+        "faq.q13": "Pourquoi certaines activites hors de chez moi sont bloquees ?",
+        "faq.a13": "Le mode localise/geolocalise, qui suggere de vrais lieux autour de toi, est reserve aux abonnes Premium. Pour les environnements \"Au sec & au chaud\" et \"Sous le grand ciel\", une verification GPS est obligatoire pour que la fonctionnalite fonctionne. Cela permet a Mogogo de te recommander de vrais endroits proches plutot que des idees generiques.",
+        "faq.q14": "Comment l'application trouve-t-elle les vrais lieux autour de moi ?",
+        "faq.a14": "En mode Premium, Mogogo recherche de vrais etablissements actuellement ouverts autour de ta position avec une note minimale de 3.5 etoiles. Cela garantit que chaque lieu suggere est fiable et accessible, pour que tu partes en confiance.",
+        "faq.cat8": "Lancement rapide & Liens directs (Actions Riches)",
+        "faq.q15": "Puis-je lier mes abonnements Netflix, Spotify ou autres a Mogogo ?",
+        "faq.a15": "Oui ! Dans les Reglages, tu peux configurer jusqu'a 3 services de streaming video et jusqu'a 3 services de streaming musical parmi un catalogue precis. Quand une recommandation correspond a l'un de tes services, Mogogo fournit un lien direct pour ouvrir le contenu dans ton application preferee. Plus besoin de chercher manuellement !",
+        "faq.q16": "Comment ouvrir le lieu recommande sur mon GPS ?",
+        "faq.a16": "Sur l'ecran de resultat, tu trouveras un bouton \"Action Maps\" avec les coordonnees GPS directes du lieu recommande. Appuie dessus pour ouvrir l'emplacement dans ton application de cartes preferee et obtenir l'itineraire immediatement.",
+        "faq.cat9": "Controle des recommandations (\"Coup de pouce\" & Rejets)",
+        "faq.q17": "Et si je sais deja un peu ce que je veux faire ?",
+        "faq.a17": "Avant de lancer l'entonnoir de decouverte, il y a une etape \"Coup de pouce\" ou tu peux ecrire une idee precise ou utiliser des tags pour orienter l'IA. Par exemple, tape \"quelque chose avec de la cuisine\" ou selectionne des tags comme \"plein air\" et \"creatif\". Cela aide Mogogo a cibler ses recommandations des le depart.",
+        "faq.q18": "Puis-je ecrire n'importe quoi dans le champ de texte libre ?",
+        "faq.a18": "Presque tout ! Cependant, Mogogo integre un filtre anti-NSFW et violence. Si ton texte contient du contenu inapproprie, le hibou magicien refusera poliment et te demandera de reformuler. Cela garantit une experience amusante et sure pour tous.",
+        "faq.q19": "L'activite finale ne me plait pas du tout. Que se passe-t-il si je clique sur \"Pas pour moi\" ?",
+        "faq.a19": "Mogogo te proposera immediatement une activite alternative. Mais surtout, ce retour fait baisser le score de ces thematiques dans ton Grimoire, pour que le hibou magicien apprenne de ses erreurs et evite des suggestions similaires a l'avenir. Chaque \"Pas pour moi\" rend Mogogo plus intelligent !",
+        "faq.cat10": "Dashboard & Inspirations Communautaires",
+        "faq.q20": "A quoi correspond mon \"Humeur / Energie\" sur l'ecran d'accueil ?",
+        "faq.a20": "Sur l'ecran d'accueil, tu peux optionnellement definir ton niveau d'energie du jour : Fatigue, En forme, ou La peche. Cela influence la facon dont le moteur d'IA calibre les recommandations pour tes sessions en cours. Une humeur \"Fatigue\" favorisera des activites calmes et peu exigeantes, tandis que \"La peche\" suggerera des idees plus actives et ambitieuses.",
+        "faq.q21": "Que sont les \"Inspirations Communautaires\" ?",
+        "faq.a21": "Les Inspirations Communautaires te permettent de parcourir et de lancer des activites que d'autres utilisateurs de Mogogo ont adorees. Elles sont classees par la note moyenne en etoiles donnee par la communaute. C'est un excellent moyen de decouvrir des activites populaires auxquelles tu n'aurais jamais pense tout seul !",
+        "contact.title": "Besoin d'aide ?",
+        "contact.subtitle": "Notre equipe est la pour t'aider. Envoie-nous un email et nous te repondrons dans les plus brefs delais.",
+        "contact.btn": "Nous contacter par email",
+        "footer.privacy": "Politique de confidentialite",
+        "footer.terms": "Conditions d'utilisation"
+      },
+      es: {
+        "nav.backHome": "Volver al inicio",
+        "support.badge": "Soporte",
+        "support.title": "Asistencia Mogogo",
+        "support.subtitle": "Encuentra respuestas a tus preguntas o contactanos directamente.",
+        "faq.cat1": "Recomendaciones (El Motor & El Grimorio)",
+        "faq.q1": "Como elige Mogogo las actividades que me sugiere?",
+        "faq.a1": "Mogogo utiliza cuatro variables clave para entender tu situacion: tu Entorno (en casa, afuera...), tu nivel de Energia (tranquilo o activo), tu contexto Social (solo, con amigos, en pareja, en familia) y tu Ubicacion. Esta informacion se envia a un motor de IA (LLM) que genera una recomendacion de actividad personalizada y unica. Ninguna sesion se repite!",
+        "faq.q2": "Las recomendaciones no me corresponden. Que hago?",
+        "faq.a2": "Ve a \"El Grimorio\" en la aplicacion para actualizar tus preferencias personales. El Grimorio es la memoria magica de Mogogo: tus gustos, intereses y lo que no te gusta. Cuanto mas lo completes, mejor te conocera el buho mago y mas relevantes seran sus sugerencias. Puedes modificarlo en cualquier momento!",
+        "faq.cat2": "Plumas & Compras In-App",
+        "faq.q3": "Para que sirven las \"Plumas\" y como las obtengo?",
+        "faq.a3": "Las Plumas son la moneda virtual de Mogogo. Cada sesion con el buho mago cuesta plumas. Ganas plumas gratis cada dia simplemente abriendo la aplicacion. Tambien puedes obtener plumas extra viendo un breve anuncio recompensado, o comprar paquetes de plumas en la tienda para seguir con la magia!",
+        "faq.q4": "Compre Plumas pero no las recibi. Que hago?",
+        "faq.a4": "Ve a los ajustes de la aplicacion (icono de engranaje arriba a la derecha) y pulsa \"Restaurar compras\". Nuestro sistema impulsado por RevenueCat sincronizara automaticamente tus compras con tu cuenta. Asegurate de haber iniciado sesion con la misma cuenta de Google que usaste para la compra original. Si el problema persiste, contactanos con el boton de abajo.",
+        "faq.cat3": "Referidos & Codigos Magicos",
+        "faq.q5": "Como uso un \"Codigo Magico\" (codigo promocional)?",
+        "faq.a5": "Abre la aplicacion y ve a Ajustes, luego pulsa \"Ingresar un Codigo Magico\". Escribe o pega el codigo que recibiste y confirma. Si el codigo es valido, tus plumas extra se acreditaran al instante. Los Codigos Magicos pueden venir de eventos en redes sociales, asociaciones o directamente del equipo Mogogo!",
+        "faq.q6": "Como funciona el sistema de referidos?",
+        "faq.a6": "Tienes un codigo de referido unico en tu perfil. Compartelo con tus amigos! Cuando un nuevo usuario ingresa tu codigo despues de instalar Mogogo, ambos reciben plumas extra. Cuantos mas amigos invites, mas plumas ganas. Todos ganan!",
+        "faq.cat4": "Historial & Comentarios",
+        "faq.q7": "Puedo encontrar una actividad que me sugirieron ayer?",
+        "faq.a7": "Si! Mogogo conserva un historial completo de tus sesiones anteriores. Pulsa la seccion Historial desde la pantalla principal para ver todas las actividades que el buho mago te ha sugerido. Cada entrada incluye todos los detalles de la actividad, asi que nunca perderas una buena idea.",
+        "faq.q8": "Como doy mi opinion sobre una actividad?",
+        "faq.a8": "Desde tu Historial, pulsa en cualquier sesion anterior para abrir la pantalla de detalle de la actividad. Ahi puedes calificar la actividad de 1 a 5 estrellas y dejar un comentario. Tus comentarios ayudan a Mogogo a conocer mejor tus preferencias y mejorar sus futuras recomendaciones!",
+        "faq.cat5": "Cuenta & Ajustes",
+        "faq.q9": "La aplicacion esta disponible en otros idiomas?",
+        "faq.a9": "Mogogo esta disponible actualmente en tres idiomas: frances, ingles y espanol. La aplicacion detecta automaticamente el idioma de tu dispositivo, pero puedes cambiarlo manualmente en Ajustes en cualquier momento.",
+        "faq.q10": "Como activo el modo oscuro?",
+        "faq.a10": "Ve a Ajustes y cambia el tema entre modo Claro y modo Oscuro. Mogogo soporta ambos temas para que puedas usar la aplicacion comodamente a cualquier hora.",
+        "faq.q11": "Por que veo anuncios?",
+        "faq.a11": "Mogogo es gratis. Para mantenerlo asi, mostramos anuncios ocasionales a traves de Google AdMob. Los anuncios no son intrusivos y solo aparecen en momentos especificos. Tambien puedes elegir ver un anuncio recompensado para ganar plumas extra. Nunca interrumpiremos tu sesion con el buho mago!",
+        "faq.cat6": "Familia & Personalizacion para ninos",
+        "faq.q12": "Como puedo asegurarme de que las recomendaciones sean adecuadas para mis hijos?",
+        "faq.a12": "Cuando seleccionas el grupo social \"Familia\", aparece un control deslizante de edad que va de 0 a 16 anos. Ajustalo a la edad del nino mas pequeno presente. El motor de IA adaptara estrictamente las recomendaciones a ese rango de edad: por ejemplo, nunca sugerira un escape room para un nino de 2 anos. Asi cada actividad es segura y apropiada.",
+        "faq.cat7": "Modo Premium & Geolocalizacion (Fuera de casa)",
+        "faq.q13": "Por que algunas actividades fuera de casa estan bloqueadas?",
+        "faq.a13": "El modo localizado/geolocalizado, que sugiere lugares reales cerca de ti, esta reservado para suscriptores Premium. Para los entornos \"Calentito y a cubierto\" y \"Bajo el cielo abierto\", se requiere verificacion GPS para que la funcion opere. Esto permite a Mogogo recomendarte lugares reales y cercanos en vez de ideas genericas.",
+        "faq.q14": "Como encuentra la aplicacion lugares reales a mi alrededor?",
+        "faq.a14": "En modo Premium, Mogogo busca establecimientos reales actualmente abiertos alrededor de tu ubicacion con una calificacion minima de 3.5 estrellas. Esto asegura que cada lugar sugerido sea confiable y accesible, para que salgas con confianza.",
+        "faq.cat8": "Lanzamiento rapido & Enlaces directos (Acciones Ricas)",
+        "faq.q15": "Puedo vincular mis suscripciones de Netflix, Spotify u otras a Mogogo?",
+        "faq.a15": "Si! En Ajustes, puedes configurar hasta 3 servicios de streaming de video y hasta 3 servicios de streaming de musica de un catalogo seleccionado. Cuando una recomendacion coincide con uno de tus servicios, Mogogo proporciona un enlace directo para abrir el contenido en tu aplicacion favorita. No mas buscar manualmente!",
+        "faq.q16": "Como abro el lugar recomendado en mi GPS?",
+        "faq.a16": "En la pantalla de resultado, encontraras un boton \"Accion Maps\" con las coordenadas GPS directas del lugar recomendado. Simplemente pulsalo para abrir la ubicacion en tu aplicacion de mapas preferida y obtener las indicaciones al instante.",
+        "faq.cat9": "Control de recomendaciones (\"Empujoncito\" & Rechazos)",
+        "faq.q17": "Y si ya tengo una idea de lo que quiero hacer?",
+        "faq.a17": "Antes de iniciar el embudo de descubrimiento, hay un paso de \"Empujoncito\" donde puedes escribir una idea concreta o usar etiquetas para guiar a la IA. Por ejemplo, escribe \"algo con cocina\" o selecciona etiquetas como \"aire libre\" y \"creativo\". Esto ayuda a Mogogo a enfocar sus recomendaciones desde el inicio.",
+        "faq.q18": "Puedo escribir cualquier cosa en el campo de texto libre?",
+        "faq.a18": "Casi todo! Sin embargo, Mogogo incluye un filtro anti-NSFW y violencia integrado. Si tu texto contiene contenido inapropiado, el buho mago lo rechazara amablemente y te pedira que reformules. Esto mantiene la experiencia divertida y segura para todos.",
+        "faq.q19": "La actividad final no me gusta nada. Que pasa si pulso \"No es para mi\"?",
+        "faq.a19": "Mogogo te sugerira inmediatamente una actividad alternativa. Pero lo mas importante es que este feedback baja la puntuacion de esas tematicas en tu Grimorio, para que el buho mago aprenda de sus errores y evite sugerencias similares en el futuro. Cada \"No es para mi\" hace a Mogogo mas inteligente!",
+        "faq.cat10": "Dashboard & Inspiraciones Comunitarias",
+        "faq.q20": "Que significa \"Humor / Energia\" en la pantalla de inicio?",
+        "faq.a20": "En la pantalla de inicio, puedes definir opcionalmente tu nivel de energia del dia: Cansado, En forma, o A tope. Esto influye en como el motor de IA calibra las recomendaciones para tus sesiones actuales. Un humor \"Cansado\" favorecera actividades tranquilas y poco exigentes, mientras que \"A tope\" sugerira ideas mas activas y ambiciosas.",
+        "faq.q21": "Que son las \"Inspiraciones Comunitarias\"?",
+        "faq.a21": "Las Inspiraciones Comunitarias te permiten explorar y lanzar actividades que otros usuarios de Mogogo han adorado. Estan clasificadas por la calificacion promedio en estrellas dada por la comunidad. Es una excelente manera de descubrir actividades populares en las que nunca habrias pensado por tu cuenta!",
+        "contact.title": "Necesitas ayuda?",
+        "contact.subtitle": "Nuestro equipo esta aqui para ayudarte. Envianos un email y te responderemos lo antes posible.",
+        "contact.btn": "Contactanos por email",
+        "footer.privacy": "Politica de privacidad",
+        "footer.terms": "Terminos de uso"
+      }
+    };
+
+    var b = (navigator.language || navigator.userLanguage || '').slice(0, 2);
+    var currentLang = localStorage.getItem('mogogo_lang') || (T[b] ? b : 'en');
+
+    function setLang(l) {
+      currentLang = l;
+      localStorage.setItem('mogogo_lang', l);
+      document.documentElement.lang = l;
+      document.querySelectorAll('[data-i18n]').forEach(function(e) {
+        var k = e.getAttribute('data-i18n');
+        if (T[l] && T[l][k]) e.textContent = T[l][k];
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(b) {
+        if (b.dataset.lang === l) {
+          b.classList.add('bg-white', 'text-brand', 'shadow-sm');
+          b.classList.remove('text-gray-500');
+        } else {
+          b.classList.remove('bg-white', 'text-brand', 'shadow-sm');
+          b.classList.add('text-gray-500');
+        }
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.addEventListener('click', function() { setLang(b.dataset.lang); });
+    });
+
+    var navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      navbar.classList.toggle('shadow-md', window.scrollY > 20);
+    });
+
+    setLang(currentLang);
+  </script>
+</body>
+</html>
