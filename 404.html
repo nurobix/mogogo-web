@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Page introuvable — Mogogo</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Nunito',-apple-system,BlinkMacSystemFont,sans-serif;color:#333;background:#fff;min-height:100vh;display:flex;flex-direction:column}
+        :root{--p:#6C3FC5;--pl:#8B5CF6;--pd:#5228A8;--sf:#F5F0FF;--t:#333;--ts:#666;--w:#fff;--g:linear-gradient(135deg,#6C3FC5 0%,#4F46E5 50%,#7C3AED 100%);--gs:linear-gradient(135deg,#F5F0FF 0%,#EDE9FE 50%,#F0EBFF 100%)}
+        a{text-decoration:none;color:inherit}
+        .page-404{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px;background:var(--gs);text-align:center}
+        .page-404-inner{max-width:520px}
+        .page-404-owl{font-size:96px;margin-bottom:24px;display:block;animation:float 4s ease-in-out infinite}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        .page-404-code{font-size:120px;font-weight:900;background:var(--g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+        .page-404 h1{font-size:28px;font-weight:800;color:var(--t);margin:16px 0 12px}
+        .page-404 p{font-size:16px;color:var(--ts);line-height:1.6;margin-bottom:32px}
+        .page-404-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+        .page-404-links a{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:700;transition:all .25s}
+        .btn-home{background:var(--g);color:var(--w);box-shadow:0 4px 20px rgba(108,63,197,.3)}
+        .btn-home:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(108,63,197,.4)}
+        .btn-blog{background:var(--w);color:var(--p);border:2px solid rgba(108,63,197,.2)}
+        .btn-blog:hover{border-color:var(--p);background:var(--sf)}
+        .footer{background:#1A1A2E;color:rgba(255,255,255,.7);padding:24px;text-align:center;font-size:13px}
+        .footer a{color:var(--pl);font-weight:600}
+        .footer a:hover{text-decoration:underline}
+    </style>
+</head>
+<body>
+
+<div class="page-404">
+    <div class="page-404-inner">
+        <span class="page-404-owl">&#129417;</span>
+        <div class="page-404-code">404</div>
+        <h1>Le hibou s'est perdu en chemin...</h1>
+        <p>La page que vous cherchez n'existe pas ou a été déplacée. Mais pas de panique — Mogogo connaît d'autres sentiers !</p>
+        <div class="page-404-links">
+            <a href="/" class="btn-home">Retour à l'accueil</a>
+            <a href="/blog/" class="btn-blog">Explorer le blog</a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2025 Mogogo Inc. Tous droits réservés. &middot; <a href="/privacy.html">Confidentialité</a> &middot; <a href="/terms.html">CGU</a></p>
+</footer>
+
+</body>
+</html>

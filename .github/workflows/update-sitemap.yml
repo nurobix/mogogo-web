@@ -1,0 +1,45 @@
+name: Update Sitemap
+
+on:
+  # Run every day at 00:15 UTC
+  schedule:
+    - cron: '15 0 * * *'
+  # Also run on push to main (in case new articles are added)
+  push:
+    branches: [main]
+    paths:
+      - 'blog/**'
+  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate sitemap
+        run: node scripts/generate-sitemap.js
+
+      - name: Check for changes
+        id: diff
+        run: |
+          git diff --quiet sitemap.xml && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push updated sitemap
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "chore: update sitemap.xml (auto-generated)"
+          git push

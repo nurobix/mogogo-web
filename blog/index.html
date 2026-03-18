@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Blog Mogogo — Recommandations films, jeux et idées de sorties</title>
+    <meta name="description" content="Le blog Mogogo : recommandations de films, jeux vidéo, idées de sorties et activités. Trouvez votre prochaine pépite grâce à l'IA.">
+    <meta name="theme-color" content="#6C3FC5">
+    <meta property="og:title" content="Blog Mogogo — Recommandations & idées de sorties">
+    <meta property="og:description" content="Recommandations films, jeux, activités. Trouvez votre prochaine pépite grâce à l'IA Mogogo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mogogo.app/blog/">
+    <meta property="og:image" content="https://mogogo.app/assets/og-image.png">
+    <link rel="canonical" href="https://mogogo.app/blog/">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Nunito',-apple-system,BlinkMacSystemFont,sans-serif;color:#333;background:#fff;overflow-x:hidden;line-height:1.6}
+        a{text-decoration:none;color:inherit}
+        img{max-width:100%;height:auto}
+        :root{--p:#6C3FC5;--pl:#8B5CF6;--pd:#5228A8;--sf:#F5F0FF;--sa:#EDE5FF;--t:#333;--ts:#666;--w:#fff;--g:linear-gradient(135deg,#6C3FC5 0%,#4F46E5 50%,#7C3AED 100%);--gs:linear-gradient(135deg,#F5F0FF 0%,#EDE9FE 50%,#F0EBFF 100%);--ss:0 2px 8px rgba(108,63,197,.08);--sm:0 4px 20px rgba(108,63,197,.12);--sl:0 8px 40px rgba(108,63,197,.18);--r:16px;--rs:10px;--rl:24px;--mw:1140px}
+        .navbar{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(255,255,255,.85);border-bottom:1px solid rgba(108,63,197,.08);box-shadow:var(--ss)}
+        .navbar-inner{max-width:var(--mw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+        .navbar-logo{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800;color:var(--p);letter-spacing:.5px}
+        .navbar-logo img{width:36px;height:36px;border-radius:10px}
+        .navbar-links{display:flex;gap:28px;align-items:center}
+        .navbar-links a{font-size:15px;font-weight:600;color:var(--ts);transition:color .2s}
+        .navbar-links a:hover{color:var(--p)}
+        .navbar-cta{background:var(--p);color:var(--w)!important;padding:10px 22px;border-radius:var(--rs);font-weight:700!important;transition:transform .2s,box-shadow .2s}
+        .navbar-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(108,63,197,.35)}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;width:32px;height:32px;position:relative}.menu-toggle span{display:block;width:24px;height:2.5px;background:var(--t);border-radius:2px;transition:.3s;position:absolute;left:4px}.menu-toggle span:nth-child(1){top:8px}.menu-toggle span:nth-child(2){top:15px}.menu-toggle span:nth-child(3){top:22px}
+
+        .blog-hero{padding:140px 24px 60px;background:var(--gs);text-align:center}
+        .blog-hero h1{font-size:clamp(32px,5vw,48px);font-weight:900;color:var(--t);margin-bottom:12px}
+        .blog-hero p{font-size:18px;color:var(--ts);max-width:600px;margin:0 auto}
+
+        .blog-grid{max-width:var(--mw);margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:32px}
+        .blog-card{background:var(--w);border-radius:var(--rl);border:1px solid rgba(108,63,197,.08);overflow:hidden;transition:all .3s}
+        .blog-card:hover{transform:translateY(-6px);box-shadow:var(--sl);border-color:var(--pl)}
+        .blog-card-body{padding:28px}
+        .blog-card-category{display:inline-block;background:var(--sf);color:var(--p);padding:4px 12px;border-radius:100px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+        .blog-card-title{font-size:20px;font-weight:800;color:var(--t);margin-bottom:10px;line-height:1.3}
+        .blog-card-title a{transition:color .2s}
+        .blog-card-title a:hover{color:var(--p)}
+        .blog-card-excerpt{font-size:14px;color:var(--ts);line-height:1.6;margin-bottom:16px}
+        .blog-card-meta{font-size:13px;color:var(--ts);font-weight:600}
+        .blog-card-link{display:inline-flex;align-items:center;gap:6px;color:var(--p);font-weight:700;font-size:14px;margin-top:12px;transition:gap .2s}
+        .blog-card-link:hover{gap:10px}
+
+        .blog-filters{max-width:var(--mw);margin:0 auto;padding:32px 24px 0;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+        .blog-filter-btn{background:var(--sf);color:var(--p);border:1px solid rgba(108,63,197,.12);padding:8px 20px;border-radius:100px;font-size:14px;font-weight:700;cursor:pointer;transition:all .25s;font-family:inherit}
+        .blog-filter-btn:hover{background:var(--sa);border-color:var(--pl)}
+        .blog-filter-btn.active{background:var(--g);color:var(--w);border-color:transparent;box-shadow:0 4px 16px rgba(108,63,197,.3)}
+        .blog-card[hidden]{display:none}
+
+        .footer{background:#1A1A2E;color:rgba(255,255,255,.7);padding:40px 24px;text-align:center;font-size:14px}
+        .footer a{color:var(--pl);font-weight:600}
+        .footer a:hover{text-decoration:underline}
+
+        @media(max-width:640px){
+            .navbar-links{display:none}
+            .menu-toggle{display:block}
+            .navbar-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);padding:20px 24px;gap:16px;border-bottom:1px solid rgba(108,63,197,.1);box-shadow:0 4px 20px rgba(108,63,197,.12)}
+            .blog-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+        <a href="../index.html" class="navbar-logo">
+            <img src="../assets/icon.png" alt="Mogogo" width="36" height="36">Mogogo
+        </a>
+        <div class="navbar-links" id="navLinks">
+            <a href="../index.html#how-it-works">Comment ça marche</a>
+            <a href="../index.html#categories">Catégories</a>
+            <a href="../index.html#features">Fonctionnalités</a>
+            <a href="../support.html">Assistance</a>
+            <a href="index.html">Blog</a>
+            <a href="../index.html#download" class="navbar-cta">Télécharger</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+
+<section class="blog-hero">
+    <h1>Le Blog Mogogo</h1>
+    <p>Recommandations films, jeux vidéo, idées de sorties et activités. Trouvez votre prochaine pépite.</p>
+</section>
+
+<div class="blog-filters">
+    <button class="blog-filter-btn active" data-filter="all">Tous</button>
+    <button class="blog-filter-btn" data-filter="cinema">Cinéma & Séries</button>
+    <button class="blog-filter-btn" data-filter="gaming">Gaming</button>
+    <button class="blog-filter-btn" data-filter="sorties">Sorties</button>
+    <button class="blog-filter-btn" data-filter="bien-etre">Bien-être</button>
+    <button class="blog-filter-btn" data-filter="tech">Tech & IA</button>
+    <button class="blog-filter-btn" data-filter="famille">Famille</button>
+    <button class="blog-filter-btn" data-filter="livres">Livres</button>
+</div>
+
+<div class="blog-grid">
+
+    <article class="blog-card" data-filter="livres">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Romantasy</span>
+            <h2 class="blog-card-title">
+                <a href="romantasy-apres-onyx-storm.html">Vide post-Rebecca Yarros ? 3 sagas de « Romantasy » avec des dragons et de la tension</a>
+            </h2>
+            <p class="blog-card-excerpt">Onyx Storm terminé en une nuit ? Découvrez 3 sagas romantasy épiques pour combler le vide : ACOTAR, Vampyria, Fourth Wing.</p>
+            <span class="blog-card-meta">24 juillet 2026</span>
+            <a href="romantasy-apres-onyx-storm.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="livres">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Horreur & Thriller</span>
+            <h2 class="blog-card-title">
+                <a href="thrillers-apres-stephen-king.html">Le dernier King vous a hanté ? 3 thrillers psychologiques qui ne vous lâcheront pas</a>
+            </h2>
+            <p class="blog-card-excerpt">Après Stephen King, 3 thrillers psychologiques glaçants pour prolonger les frissons : L'Outsider, La Maison des Voix, Riley Sager.</p>
+            <span class="blog-card-meta">10 juillet 2026</span>
+            <a href="thrillers-apres-stephen-king.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="livres">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Young Adult</span>
+            <h2 class="blog-card-title">
+                <a href="enquetes-young-adult-holly-jackson.html">Accro aux enquêtes de Holly Jackson ? 3 « Cold Cases » Young Adult pour jouer les détectives</a>
+            </h2>
+            <p class="blog-card-excerpt">Après Meurtre mode d'emploi, 3 romans YA avec des enquêtes addictives : Qui ment ?, Inheritance Games, Truly Devious.</p>
+            <span class="blog-card-meta">26 juin 2026</span>
+            <a href="enquetes-young-adult-holly-jackson.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="livres">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Science-Fiction</span>
+            <h2 class="blog-card-title">
+                <a href="odyssees-spatiales-sf-optimiste.html">Fan de Seul sur Mars ? 3 odyssées spatiales intelligentes et addictives</a>
+            </h2>
+            <p class="blog-card-excerpt">Hard SF accessible et humour dans l'espace : 3 romans pour les fans d'Andy Weir. Bobiverse, Artémis et plus.</p>
+            <span class="blog-card-meta">12 juin 2026</span>
+            <a href="odyssees-spatiales-sf-optimiste.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="livres">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Suspense & Évasion</span>
+            <h2 class="blog-card-title">
+                <a href="page-turners-apres-musso.html">Lu le dernier Musso en une nuit ? 3 romans addictifs entre mystère et destin pour vos vacances</a>
+            </h2>
+            <p class="blog-card-excerpt">Après Musso, 3 page-turners pour vos vacances : Harry Quebert, Les sept sœurs, Michel Bussi. Impossible de les poser.</p>
+            <span class="blog-card-meta">10 mars 2026</span>
+            <a href="page-turners-apres-musso.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Super-héros</span>
+            <h2 class="blog-card-title">
+                <a href="films-super-heros-solaires-superman.html">Le nouveau Superman vous a redonné foi aux héros ? 3 films solaires et épiques à découvrir</a>
+            </h2>
+            <p class="blog-card-excerpt">Gardiens de la Galaxie, The Rocketeer et Wonder Woman : 3 films de super-héros lumineux et optimistes pour prolonger l'élan du Superman de James Gunn.</p>
+            <span class="blog-card-meta">9 octobre 2026</span>
+            <a href="films-super-heros-solaires-superman.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Animation</span>
+            <h2 class="blog-card-title">
+                <a href="films-animation-revolutionnaires-spider-verse.html">Fou de l'esthétique du Spider-Verse ? 3 films d'animation révolutionnaires qui repoussent les limites</a>
+            </h2>
+            <p class="blog-card-excerpt">Les Mitchell contre les Machines, Nimona et Paprika : 3 films d'animation audacieux pour les fans de styles graphiques hybrides et de narration inventive.</p>
+            <span class="blog-card-meta">2 octobre 2026</span>
+            <a href="films-animation-revolutionnaires-spider-verse.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Horreur & Survie</span>
+            <h2 class="blog-card-title">
+                <a href="films-survie-horreur-apres-28-years-later.html">Le virus de 28 ans plus tard vous a glacé le sang ? 3 films de survie radicaux pour prolonger l'angoisse</a>
+            </h2>
+            <p class="blog-card-excerpt">Dernier train pour Busan, Sans un bruit et The Thing : 3 films de survie qui vont vous clouer au canapé après 28 Years Later.</p>
+            <span class="blog-card-meta">25 septembre 2026</span>
+            <a href="films-survie-horreur-apres-28-years-later.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Séries Fantastique</span>
+            <h2 class="blog-card-title">
+                <a href="apres-stranger-things-series-fantastiques-nostalgie.html">Adieu Hawkins ? 3 séries fantastiques pour retrouver la magie des années 80/90</a>
+            </h2>
+            <p class="blog-card-excerpt">Dark, Outer Range, Paper Girls : 3 séries fantastiques nostalgiques pour combler le vide après Stranger Things Saison 5.</p>
+            <span class="blog-card-meta">18 septembre 2026</span>
+            <a href="apres-stranger-things-series-fantastiques-nostalgie.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Séries Drame</span>
+            <h2 class="blog-card-title">
+                <a href="apres-the-bear-series-metiers-pression.html">En manque du stress de The Bear ? 3 séries ultra-rythmées sur les métiers sous pression</a>
+            </h2>
+            <p class="blog-card-excerpt">Boiling Point, Succession, Industry : 3 séries au rythme effréné pour retrouver le chaos organisé de The Bear.</p>
+            <span class="blog-card-meta">11 septembre 2026</span>
+            <a href="apres-the-bear-series-metiers-pression.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Action & Espionnage</span>
+            <h2 class="blog-card-title">
+                <a href="films-action-cascades-mission-impossible.html">Adieu Ethan Hunt ? 3 films d'action "à l'ancienne" avec des cascades réelles et 0% de répit</a>
+            </h2>
+            <p class="blog-card-excerpt">John Wick 4, The Raid et La Mémoire dans la peau : les films d'action qui ne trichent pas. Cascades réelles, adrénaline garantie.</p>
+            <span class="blog-card-meta">4 septembre 2026</span>
+            <a href="films-action-cascades-mission-impossible.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Séries Mystère</span>
+            <h2 class="blog-card-title">
+                <a href="apres-mercredi-series-gothiques-mystere.html">Fan de Mercredi Addams ? 3 séries mystérieuses et gothiques pour prolonger l'ambiance</a>
+            </h2>
+            <p class="blog-card-excerpt">The Sandman, Locke & Key, Yellowjackets : 3 séries gothiques et addictives pour les fans d'esthétique sombre et d'enquêtes surnaturelles.</p>
+            <span class="blog-card-meta">28 août 2026</span>
+            <a href="apres-mercredi-series-gothiques-mystere.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Séries Thriller</span>
+            <h2 class="blog-card-title">
+                <a href="apres-squid-game-thrillers-haute-tension.html">Fini Squid Game ? 3 thrillers psychologiques à haute tension</a>
+            </h2>
+            <p class="blog-card-excerpt">Alice in Borderland, Severance, The 8 Show : 3 thrillers psychologiques qui jouent avec vos nerfs après Squid Game Saison 2.</p>
+            <span class="blog-card-meta">21 août 2026</span>
+            <a href="apres-squid-game-thrillers-haute-tension.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Creature Collector</span>
+            <h2 class="blog-card-title">
+                <a href="creature-collector-alternative-pokemon-2026.html">Marre d'Illumis ? 3 jeux de collection de créatures qui font mieux que Pokémon en 2026.</a>
+            </h2>
+            <p class="blog-card-excerpt">Cassette Beasts, Palworld, Kindred Fates : 3 alternatives qui surpassent Pokémon en graphismes et mécaniques.</p>
+            <span class="blog-card-meta">14 août 2026</span>
+            <a href="creature-collector-alternative-pokemon-2026.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Séries Post-Apo</span>
+            <h2 class="blog-card-title">
+                <a href="apres-the-last-of-us-saison-2-series-post-apo.html">The Last of Us S2 vous a laissé un vide ? 3 séries post-apo qui ne vous ménageront pas</a>
+            </h2>
+            <p class="blog-card-excerpt">Station Eleven, Sweet Tooth, The Leftovers : 3 séries post-apocalyptiques émotionnelles pour survivre au vide post-TLOU.</p>
+            <span class="blog-card-meta">7 août 2026</span>
+            <a href="apres-the-last-of-us-saison-2-series-post-apo.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Stratégie</span>
+            <h2 class="blog-card-title">
+                <a href="strategie-alternative-civilization-7.html">Trop de tours de jeu sur Civ 7 ? 3 jeux de stratégie qui respectent votre temps.</a>
+            </h2>
+            <p class="blog-card-excerpt">Ara History Untold, Millennia, Thronefall : 3 alternatives à Civilization pour bâtir des empires sans sacrifier vos nuits.</p>
+            <span class="blog-card-meta">31 juillet 2026</span>
+            <a href="strategie-alternative-civilization-7.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Cinéma SF</span>
+            <h2 class="blog-card-title">
+                <a href="films-apres-avatar-3-odyssees-visuelles.html">Émerveillé par Pandore ? 3 odyssées visuelles à couper le souffle après Avatar 3</a>
+            </h2>
+            <p class="blog-card-excerpt">Valérian, Dune Part Two et Mars Express : 3 films épiques pour prolonger la claque visuelle d'Avatar 3 Fire and Ash.</p>
+            <span class="blog-card-meta">17 juillet 2026</span>
+            <a href="films-apres-avatar-3-odyssees-visuelles.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Jeux de société</span>
+            <h2 class="blog-card-title">
+                <a href="jeux-societe-modernes-oublier-monopoly.html">3 jeux de société modernes qui vont vous faire oublier le Monopoly (enfin !)</a>
+            </h2>
+            <p class="blog-card-excerpt">Marre du Monopoly ? Découvrez Azul, Carcassonne et 7 Wonders : 3 jeux de société modernes accessibles et addictifs pour des soirées mémorables.</p>
+            <span class="blog-card-meta">3 juillet 2026</span>
+            <a href="jeux-societe-modernes-oublier-monopoly.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Contemplatif</span>
+            <h2 class="blog-card-title">
+                <a href="jeux-contemplatifs-apres-death-stranding-2.html">Le « Walking Simulator » vous manque ? 3 expériences contemplatives après Death Stranding 2.</a>
+            </h2>
+            <p class="blog-card-excerpt">Jusant, Pacific Drive, Still Wakes the Deep : 3 jeux lents, beaux et mystérieux pour les amateurs de voyages contemplatifs.</p>
+            <span class="blog-card-meta">19 juin 2026</span>
+            <a href="jeux-contemplatifs-apres-death-stranding-2.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="bien-etre">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Bien-être</span>
+            <h2 class="blog-card-title">
+                <a href="lire-avant-dormir-bienfaits-sommeil.html">Pourquoi lire 15 minutes avant de dormir change radicalement votre sommeil</a>
+            </h2>
+            <p class="blog-card-excerpt">La lecture réduit le stress de 68% en 6 minutes. Découvrez les bienfaits scientifiques et 3 romans apaisants pour votre rituel du soir.</p>
+            <span class="blog-card-meta">5 juin 2026</span>
+            <a href="lire-avant-dormir-bienfaits-sommeil.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Action-RPG</span>
+            <h2 class="blog-card-title">
+                <a href="action-rpg-apres-monster-hunter-wilds.html">Essoufflé par la chasse ? 3 Action-RPG épiques pour changer de Monster Hunter Wilds.</a>
+            </h2>
+            <p class="blog-card-excerpt">Wild Hearts, Dragon's Dogma 2, Phantom Blade Zero : 3 alternatives épiques pour les chasseurs en quête de renouveau.</p>
+            <span class="blog-card-meta">29 mai 2026</span>
+            <a href="action-rpg-apres-monster-hunter-wilds.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Culture & Documentaires</span>
+            <h2 class="blog-card-title">
+                <a href="documentaires-fascinants-streaming.html">3 documentaires fascinants qui vont changer votre vision du monde</a>
+            </h2>
+            <p class="blog-card-excerpt">Marre de la fiction ? 3 documentaires en streaming (nature, espace, tech) pour apprendre, s'émerveiller et briller en société.</p>
+            <span class="blog-card-meta">22 mai 2026</span>
+            <a href="documentaires-fascinants-streaming.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Thriller</span>
+            <h2 class="blog-card-title">
+                <a href="thriller-psychologique-films-suspense.html">Thriller psychologique : 3 films qui vont vous empêcher de dormir (sans être du gore gratuit)</a>
+            </h2>
+            <p class="blog-card-excerpt">Contratiempo, Shutter Island, Gone Girl : 3 thrillers psychologiques glacés qui misent sur l'intelligence, pas sur le sang.</p>
+            <span class="blog-card-meta">15 mai 2026</span>
+            <a href="thriller-psychologique-films-suspense.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="famille">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Famille & Gaming</span>
+            <h2 class="blog-card-title">
+                <a href="jeux-video-enfants-coop-famille.html">Quels jeux vidéo partager avec ses enfants sans devenir fou ? (Testé et approuvé)</a>
+            </h2>
+            <p class="blog-card-excerpt">Untitled Goose Game, It Takes Two, Kirby : 3 jeux coop testés en famille. Zéro Fortnite, zéro crise (ou presque).</p>
+            <span class="blog-card-meta">8 mai 2026</span>
+            <a href="jeux-video-enfants-coop-famille.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="sorties">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Sorties Nantes</span>
+            <h2 class="blog-card-title">
+                <a href="sortir-sans-se-ruiner-loire-atlantique.html">Sortir sans se ruiner : 5 activités gratuites (ou presque) en Loire-Atlantique</a>
+            </h2>
+            <p class="blog-card-excerpt">Fin de mois serrée ? 5 idées de sorties gratuites ou presque en Loire-Atlantique : parcs, géocaching, expos, ludothèques et littoral.</p>
+            <span class="blog-card-meta">1er mai 2026</span>
+            <a href="sortir-sans-se-ruiner-loire-atlantique.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="sorties">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Sorties Nantes</span>
+            <h2 class="blog-card-title">
+                <a href="micro-aventure-nantes-sorties-insolites.html">Micro-aventure : 3 idées de sorties insolites à moins d'une heure de Nantes</a>
+            </h2>
+            <p class="blog-card-excerpt">Cabane perchée, rando nocturne, village oublié : 3 micro-aventures dépaysantes sans prendre l'avion. Trentemoult, Oudon et plus.</p>
+            <span class="blog-card-meta">24 avril 2026</span>
+            <a href="micro-aventure-nantes-sorties-insolites.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Soulslike</span>
+            <h2 class="blog-card-title">
+                <a href="soulslike-apres-elden-ring-dlc.html">Vous avez terrassé Messmer ? 3 Soulslike exigeants après le DLC d'Elden Ring.</a>
+            </h2>
+            <p class="blog-card-excerpt">Lies of P, Black Myth Wukong, Enotria : 3 soulslike pour tester vos réflexes après Shadow of the Erdtree.</p>
+            <span class="blog-card-meta">17 avril 2026</span>
+            <a href="soulslike-apres-elden-ring-dlc.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="tech">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Tech & Société</span>
+            <h2 class="blog-card-title">
+                <a href="temps-choisir-film-streaming.html">Pourquoi vous passez plus de temps à choisir votre film qu'à le regarder (et comment arrêter)</a>
+            </h2>
+            <p class="blog-card-excerpt">Fatigue décisionnelle et streaming : pourquoi 15 000 films nous rendent malheureux, et comment en sortir en 3 secondes.</p>
+            <span class="blog-card-meta">10 avril 2026</span>
+            <a href="temps-choisir-film-streaming.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="sorties">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Idées loisirs</span>
+            <h2 class="blog-card-title">
+                <a href="solo-date-idees-sortie-seul.html">Solo Date : 3 idées pour se faire plaisir seul(e) sans se sentir bizarre</a>
+            </h2>
+            <p class="blog-card-excerpt">La tendance solo date décryptée : cinéma d'auteur, rando photo, café-librairie. 3 idées concrètes pour votre prochain rendez-vous avec vous-même.</p>
+            <span class="blog-card-meta">3 avril 2026</span>
+            <a href="solo-date-idees-sortie-seul.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Cocooning</span>
+            <h2 class="blog-card-title">
+                <a href="jeux-relaxants-cocooning.html">Pluie, plaid et chocolat chaud : 5 jeux vidéo ultra-relaxants pour débrancher le cerveau</a>
+            </h2>
+            <p class="blog-card-excerpt">Unpacking, Dorfromantik, A Short Hike : 5 jeux zen parfaits pour une soirée cocooning. Zéro stress, zéro Game Over.</p>
+            <span class="blog-card-meta">27 mars 2026</span>
+            <a href="jeux-relaxants-cocooning.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Cozy Gaming</span>
+            <h2 class="blog-card-title">
+                <a href="meilleurs-cozy-games-2026.html">Quoi jouer après Stardew Valley ? Les meilleurs Cozy Games de 2026</a>
+            </h2>
+            <p class="blog-card-excerpt">Vous avez retourné Stardew Valley dans tous les sens et vous cherchez la prochaine pépite cozy ? Voici notre sélection pour des soirées douces et addictives.</p>
+            <span class="blog-card-meta">20 mars 2026</span>
+            <a href="meilleurs-cozy-games-2026.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="sorties">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Sorties & Événements</span>
+            <h2 class="blog-card-title">
+                <a href="vacances-paques-2026-loire-atlantique.html">Vacances de Pâques 2026 : Le guide de survie pour ne pas s'ennuyer en Loire-Atlantique</a>
+            </h2>
+            <p class="blog-card-excerpt">Balades nature, sorties culturelles et événements festifs : tout ce qu'il faut pour des vacances de Pâques réussies en Loire-Atlantique.</p>
+            <span class="blog-card-meta">12 mars 2026</span>
+            <a href="vacances-paques-2026-loire-atlantique.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="bien-etre">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Bien-être</span>
+            <h2 class="blog-card-title">
+                <a href="cozy-games-remede-stress.html">Pourquoi les « Cozy Games » sont-ils devenus le remède ultime contre le stress ?</a>
+            </h2>
+            <p class="blog-card-excerpt">Le phénomène cozy games décrypté : pourquoi ces jeux vidéo relaxants séduisent des millions de joueurs bien au-delà des gamers traditionnels.</p>
+            <span class="blog-card-meta">8 mars 2026</span>
+            <a href="cozy-games-remede-stress.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Gaming</span>
+            <h2 class="blog-card-title">
+                <a href="jeux-automatisation-satisfactory.html">Accro à Satisfactory ? 3 jeux d'automatisation pour ruiner vos nuits</a>
+            </h2>
+            <p class="blog-card-excerpt">Satisfactory vous a transformé en ingénieur compulsif ? Découvrez 3 jeux d'automatisation qui vont dévorer votre temps libre (et vos nuits).</p>
+            <span class="blog-card-meta">5 mars 2026</span>
+            <a href="jeux-automatisation-satisfactory.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="tech">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Tech & Société</span>
+            <h2 class="blog-card-title">
+                <a href="ia-choix-loisirs.html">L'IA peut-elle vraiment nous aider à mieux choisir nos loisirs ?</a>
+            </h2>
+            <p class="blog-card-excerpt">Entre paradoxe du choix et algorithmes biaisés, réflexion sur comment une IA éthique et sans pub peut nous redonner du temps de qualité.</p>
+            <span class="blog-card-meta">3 mars 2026</span>
+            <a href="ia-choix-loisirs.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="tech">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Le Labo du Dev</span>
+            <h2 class="blog-card-title">
+                <a href="pourquoi-ia-grimoire-famille.html">Pourquoi j'ai créé une IA en forme de grimoire pour ma famille (et la vôtre)</a>
+            </h2>
+            <p class="blog-card-excerpt">L'histoire d'un papa-développeur à Vallet qui a créé un hibou magicien IA pour ne plus jamais entendre « on fait quoi ? ». Valeurs, données privées et genèse du projet.</p>
+            <span class="blog-card-meta">2 mars 2026</span>
+            <a href="pourquoi-ia-grimoire-famille.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="famille">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Parentalité</span>
+            <h2 class="blog-card-title">
+                <a href="anniversaire-enfant-sans-ecran.html">Comment organiser un après-midi d'anniversaire sans stress (et sans écran)</a>
+            </h2>
+            <p class="blog-card-excerpt">Jeux revisités, conseils de timing et idées de thèmes : le guide complet pour un anniversaire d'enfant réussi sans tablette ni télé.</p>
+            <span class="blog-card-meta">24 février 2026</span>
+            <a href="anniversaire-enfant-sans-ecran.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="sorties">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Sorties Nantes</span>
+            <h2 class="blog-card-title">
+                <a href="vignoble-nantais-balades-clisson-vallet.html">Vignoble Nantais : 3 balades insolites autour de Vallet et Clisson pour ce week-end</a>
+            </h2>
+            <p class="blog-card-excerpt">Domaine de la Garenne Lemot, bords de Sèvre, circuit des moulins de Vallet : 3 idées de sorties nature à moins de 30 minutes de Nantes.</p>
+            <span class="blog-card-meta">25 février 2026</span>
+            <a href="vignoble-nantais-balades-clisson-vallet.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Cinéma</span>
+            <h2 class="blog-card-title">
+                <a href="3-pepites-cine.html">3 pépites ciné à voir absolument (Anatomie d'une chute, Miyazaki, Civil War)</a>
+            </h2>
+            <p class="blog-card-excerpt">Trois films coup de cœur qui n'ont rien en commun — sauf qu'ils sont tous exceptionnels. Notre recommandation film pour ne pas passer à côté.</p>
+            <span class="blog-card-meta">18 février 2026</span>
+            <a href="3-pepites-cine.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Gaming</span>
+            <h2 class="blog-card-title">
+                <a href="satisfactory-vs-factorio-comparatif.html">Satisfactory vs Factorio : Quel jeu d'usine est fait pour vous ?</a>
+            </h2>
+            <p class="blog-card-excerpt">Comparatif complet entre Satisfactory et Factorio : graphismes, difficulté, temps de jeu. On décortique tout pour vous aider à choisir.</p>
+            <span class="blog-card-meta">15 février 2026</span>
+            <a href="satisfactory-vs-factorio-comparatif.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="bien-etre">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Psycho & Loisirs</span>
+            <h2 class="blog-card-title">
+                <a href="paralysie-du-choix-trop-options.html">La paralysie du choix : pourquoi avoir trop d'options nous empêche de nous détendre</a>
+            </h2>
+            <p class="blog-card-excerpt">Trop de choix tue le choix. Découvrez le paradoxe du choix de Barry Schwartz et comment simplifier votre prise de décision pour vos loisirs.</p>
+            <span class="blog-card-meta">12 février 2026</span>
+            <a href="paralysie-du-choix-trop-options.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="gaming">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Retrogaming</span>
+            <h2 class="blog-card-title">
+                <a href="retrogaming-classiques-annees-90.html">Retrogaming : 3 classiques oubliés des années 90 qui méritent un remake</a>
+            </h2>
+            <p class="blog-card-excerpt">Skies of Arcadia, Chrono Cross, Grim Fandango : trois jeux géniaux tombés dans l'oubli qui mériteraient une seconde chance.</p>
+            <span class="blog-card-meta">17 février 2026</span>
+            <a href="retrogaming-classiques-annees-90.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Séries SF</span>
+            <h2 class="blog-card-title">
+                <a href="series-science-fiction-cerebrales.html">5 séries de science-fiction cérébrales à voir si vous avez adoré Dark ou Interstellar</a>
+            </h2>
+            <p class="blog-card-excerpt">Severance, Devs, Pantheon, Constellation, Silo : 5 séries SF qui vont faire chauffer vos neurones après Dark et Interstellar.</p>
+            <span class="blog-card-meta">10 février 2026</span>
+            <a href="series-science-fiction-cerebrales.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="sorties">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Idées loisirs</span>
+            <h2 class="blog-card-title">
+                <a href="soiree-couple-choisir-film.html">Soirée télé en couple : 3 astuces pour arrêter de débattre et enfin lancer un film</a>
+            </h2>
+            <p class="blog-card-excerpt">La méthode 3-2-1, le tirage au sort thématique et l'IA comme arbitre impartial : 3 astuces pour ne plus gâcher vos soirées à deux.</p>
+            <span class="blog-card-meta">3 février 2026</span>
+            <a href="soiree-couple-choisir-film.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Cinéma</span>
+            <h2 class="blog-card-title">
+                <a href="faut-il-voir-anciens-films-miyazaki.html">Faut-il avoir vu les anciens films pour comprendre le nouveau Miyazaki ?</a>
+            </h2>
+            <p class="blog-card-excerpt">Le Garçon et le Héron vous intrigue mais vous n'avez jamais vu de Miyazaki ? Analyse sans spoilers pour savoir si vous pouvez y aller les yeux fermés.</p>
+            <span class="blog-card-meta">28 janvier 2026</span>
+            <a href="faut-il-voir-anciens-films-miyazaki.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="cinema">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Ciné-thérapie</span>
+            <h2 class="blog-card-title">
+                <a href="films-feel-good-remonter-moral.html">3 films « Feel Good » pour remonter le moral après une semaine difficile</a>
+            </h2>
+            <p class="blog-card-excerpt">Little Miss Sunshine, Le Château Ambulant, The Grand Budapest Hotel : 3 films doudous pour transformer votre soirée.</p>
+            <span class="blog-card-meta">22 janvier 2026</span>
+            <a href="films-feel-good-remonter-moral.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="tech">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Tech & Culture</span>
+            <h2 class="blog-card-title">
+                <a href="netflix-memes-films-algorithme.html">Pourquoi Netflix vous propose toujours les mêmes 10 films (et comment en sortir)</a>
+            </h2>
+            <p class="blog-card-excerpt">Marre des mêmes recommandations ? Découvrez comment fonctionnent les bulles de filtre et comment l'IA Mogogo fait l'inverse.</p>
+            <span class="blog-card-meta">15 janvier 2026</span>
+            <a href="netflix-memes-films-algorithme.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+    <article class="blog-card" data-filter="sorties">
+        <div class="blog-card-body">
+            <span class="blog-card-category">Sorties Nantes</span>
+            <h2 class="blog-card-title">
+                <a href="pluie-nantes-activites-enfants-sans-ecran.html">Pluie à Nantes : 5 activités intérieures pour occuper les enfants sans écran</a>
+            </h2>
+            <p class="blog-card-excerpt">Il pleut à Nantes et les enfants s'ennuient ? 5 idées d'activités intérieures sans écran : musées, parcs couverts, chasses au trésor maison.</p>
+            <span class="blog-card-meta">12 janvier 2026</span>
+            <a href="pluie-nantes-activites-enfants-sans-ecran.html" class="blog-card-link">Lire l'article &rarr;</a>
+        </div>
+    </article>
+
+</div>
+
+<footer class="footer">
+    <p>&copy; 2025 Mogogo Inc. Tous droits réservés. &middot; <a href="../privacy.html">Confidentialité</a> &middot; <a href="../terms.html">CGU</a></p>
+</footer>
+
+<script>
+(function(){
+    var mois={'janvier':0,'février':1,'fevrier':1,'mars':2,'avril':3,'mai':4,'juin':5,'juillet':6,'août':7,'aout':7,'septembre':8,'octobre':9,'novembre':10,'décembre':11,'decembre':11};
+    function parseDate(txt){
+        var t=txt.trim().replace(/1er /,'1 ');
+        var p=t.split(' ');
+        if(p.length<3)return null;
+        var d=parseInt(p[0]),m=mois[p[1].toLowerCase()],y=parseInt(p[2]);
+        if(isNaN(d)||m===undefined||isNaN(y))return null;
+        return new Date(y,m,d,23,59,59);
+    }
+    var now=new Date();
+    document.querySelectorAll('.blog-card').forEach(function(card){
+        var meta=card.querySelector('.blog-card-meta');
+        if(!meta)return;
+        var pubDate=parseDate(meta.textContent);
+        if(pubDate&&pubDate>now){
+            card.style.display='none';
+            card.setAttribute('data-scheduled','true');
+        }
+    });
+    document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active')});
+            btn.classList.add('active');
+            var filter=btn.dataset.filter;
+            document.querySelectorAll('.blog-card').forEach(function(card){
+                if(card.getAttribute('data-scheduled')==='true'){card.style.display='none';return;}
+                if(filter==='all'||card.dataset.filter===filter){
+                    card.style.display='';
+                }else{
+                    card.style.display='none';
+                }
+            });
+        });
+    });
+})();
+var mt=document.getElementById('menuToggle'),nl=document.getElementById('navLinks');if(mt&&nl){mt.addEventListener('click',function(){nl.classList.toggle('open')});nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open')})})}
+</script>
+</body>
+</html>
