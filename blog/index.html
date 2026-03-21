@@ -709,6 +709,17 @@
             card.setAttribute('data-scheduled','true');
         }
     });
+    var grid=document.querySelector('.blog-grid');
+    if(grid){
+        var cards=Array.from(grid.querySelectorAll('.blog-card'));
+        cards.sort(function(a,b){
+            var ma=a.querySelector('.blog-card-meta'),mb=b.querySelector('.blog-card-meta');
+            var da=ma?parseDate(ma.textContent):null,db=mb?parseDate(mb.textContent):null;
+            if(!da&&!db)return 0;if(!da)return 1;if(!db)return -1;
+            return db-da;
+        });
+        cards.forEach(function(card){grid.appendChild(card);});
+    }
     document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
         btn.addEventListener('click',function(){
             document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active')});
